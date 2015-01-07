@@ -1,0 +1,15 @@
+[alias]
+	co = checkout
+	br = branch
+	ci = commit -m
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	day = log --since '1 day ago' --oneline --author nick23hi@gmail.com
+	discard = checkout --
+	up = "!git remote update -p; git merge --ff-only @{u}"
+[color]
+	diff = auto
+[push]
+	default = simple
