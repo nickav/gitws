@@ -33,25 +33,32 @@ Now make your commit and simply run `git publish` to publish your files to GitHu
 
 Work on a branch that’s not **master**. Add your changed files. Commit some things. Then  when you’re happy, publish your branch.
 
-```git checkout -b dev # go to branch (**-b** = create one if it doesn’t exist).
+```bash
+git checkout -b dev # go to branch (**-b** = create one if it doesn’t exist).
 #git add . # add all files in the current directory
 git add README.md # add README.md to be committed
 git commit -m “my commit message” # commit your file state
 git publish
 ```
 
-## Helpful links
+## Thanks
+Thanks for following along!
+
+Here's a list of helpful links to keep learning git:
+
 * [Interactive Git Tutorial](http://pcottle.github.io/learnGitBranching/) - A great visualization of what is happening as you work with git
 
-#### A note on git publish for the curious
+#### * A note on git publish for the curious
 What git publish does is simplify a few common tasks in a typical git workflow.
 Really git publish is doing the following from your current branch, say **dev** in this example:
-```git checkout master # go to master branch
+
+```bash
+git checkout master # go to master branch
 git fetch # get the latest updates from the server
 git checkout dev # go back to dev
 git rebase master # rebase with master
 git checkout master
-git merge dev
-git push
+git merge dev # merge the changes from dev to master
+git push # push the current branch to the remote origin
 ```
 However, `git fetch` is instead a combination of `git remote update -p` and `git merge --ff-only @{u}` written as fetch here for simplicity of understanding. These two commands used together helps keep the commit history clean of “Merge branch ‘master’ of ….”
